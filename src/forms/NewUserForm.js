@@ -2,7 +2,6 @@ import React, {useState } from 'react'
 
 const NewUserForm = ({ updateUsers }) => {
   const [newUser, setNewUser] = useState({
-    id: 2,
     firstName: '',
     lastName: '',
     age: ''
@@ -20,6 +19,12 @@ const NewUserForm = ({ updateUsers }) => {
     console.log(newUser);
 
     updateUsers(newUser)
+
+    setNewUser({
+      firstName: '',
+      lastName: '',
+      age: ''
+    })
   }
 
   return (
@@ -38,7 +43,7 @@ const NewUserForm = ({ updateUsers }) => {
           <input type="text" name="age" value={newUser.age} onChange={handleChange} />
         </div>
         <div>
-          <input type="submit" value="Add New User"/>
+          <button type="submit">Add New User</button>
         </div>
       </form>
     </div>

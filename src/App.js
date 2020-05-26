@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import './App.scss';
 import NewUserForm from './forms/NewUserForm';
@@ -14,10 +15,15 @@ function App() {
     }
   ]);
 
-  const updateUsers = newUser => {
+  const updateUsers = ({ firstName, lastName, age }) => {
     setUsers([
       ...users,
-      newUser
+      {
+        id: uuidv4(),
+        firstName,
+        lastName,
+        age
+      }
     ])
   }
 
